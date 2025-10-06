@@ -1,0 +1,43 @@
+<jhi-navbar></jhi-navbar>
+
+<div class="img-background">
+    <img src="assets/images/image.png" alt="Background" class="background-image " />
+</div>
+
+<div class="container container-view mt-4">
+    <div>
+        <span>MOVIES</span>
+    </div>
+
+    <div class="container-textt">
+        <button class="button-view" [ngClass]="{'active-button': currentMovie === 'now'}" (click)="showSelectedList('now')">Now Playing</button>
+        <button class="button-view" [ngClass]="{'active-button': currentMovie === 'upcoming'}" (click)="showSelectedList('upcoming')">Upcoming</button>
+        <button class="button-view" [ngClass]="{'active-button': currentMovie === 'popular'}" (click)="showSelectedList('popular')">Popular</button>
+        <button class="button-view" [ngClass]="{'active-button': currentMovie === 'add'}" (click)="addMovie()">Add Movie</button>
+
+    </div>
+</div>
+
+<!-- i used mat card to show data on card -->
+  <div class="container mt-4 d-flex align-items-center justify-content-between">
+      <button class="btn btn-outline-primary me-2 mb-2" (click)="prev()" [disabled]="currentIndex === 0">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+  
+      <div class="row w-100 justify-content-center">
+        <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+          <mat-card class="example-card" appearance="outlined">
+            <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 325px;" />
+            <mat-card-content>
+              <mat-card-title>{{ mov.title }}</mat-card-title>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+  
+      <button class="btn btn-outline-primary ms-2 mb-2"
+              (click)="next()"
+             >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+  </div>
