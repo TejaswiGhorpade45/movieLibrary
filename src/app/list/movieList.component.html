@@ -67,12 +67,22 @@
 
 <div class="container mt-4 ">
 
-    <h3 style="color: white; text-align: center;">Upcoming Movies</h3>
+    <h3 class="movieTitles">Upcoming Movies</h3>
+    <div class="d-flex justify-content-center mt-3">
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Search movie</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter movie name"
+          [(ngModel)]="searchUpcomingMovie"
+          (ngModelChange)="onSearchChange()"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
   
   <div class="d-flex align-items-center justify-content-between mt-3">
-    <button class="btn btn-outline-primary me-2 mb-2" (click)="prev()" [disabled]="currentIndex === 0">
-      <mat-icon>chevron_left</mat-icon>
-    </button>
 
     <div class="row w-100 justify-content-center">
       <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
@@ -84,23 +94,31 @@
         </mat-card>
       </div>
     </div>
-
-    <button class="btn btn-outline-primary ms-2 mb-2" (click)="next()">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
   </div>
 </div>
 
-<div class="container mt-4 ">
-  <h3 style="color: white; text-align: center;">Popular Movies</h3>
 
+
+
+<div class="container mt-4 ">
+  <h3  class="movieTitles">Popular Movies</h3>
+  <div class="d-flex justify-content-center mt-3">
+    <mat-form-field appearance="outline" class="w-50">
+      <mat-label>Search movie</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter movie name"
+        [(ngModel)]="searchPopularMovie"
+        (ngModelChange)="onSearchChange()"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
 <div class="d-flex align-items-center justify-content-between mt-3">
-  <button class="btn btn-outline-primary me-2 mb-2" (click)="prev()" [disabled]="currentIndex === 0">
-    <mat-icon>chevron_left</mat-icon>
-  </button>
 
   <div class="row w-100 justify-content-center">
-    <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+    <div *ngFor="let mov of displayedPopularMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
       <mat-card class="example-card" appearance="outlined">
         <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
         <mat-card-content>
@@ -110,8 +128,5 @@
     </div>
   </div>
 
-  <button class="btn btn-outline-primary ms-2 mb-2" (click)="next()">
-    <mat-icon>chevron_right</mat-icon>
-  </button>
 </div>
 </div>

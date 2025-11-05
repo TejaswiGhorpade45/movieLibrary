@@ -9,24 +9,28 @@ import AddMovieComponent from '../addMovie/addMovie.component';
 import { MovieStore } from '../store/movie.store';
 import { time } from 'console';
 import { FormsModule } from '@angular/forms';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @Component({
   standalone: true,
   selector: 'jhi-movieList',
   templateUrl: './movieList.component.html',
   styleUrl: './movieList.component.scss',
-  imports: [CommonModule,NavbarComponent,MatCardModule,MatIconModule,FormsModule],
+  imports: [CommonModule,NavbarComponent,MatCardModule,MatIconModule,FormsModule,MatAutocompleteModule, MatFormFieldModule,
+    MatInputModule,],
   providers:[MovieStore]
 })
 export default class movieListComponent implements OnInit {
   displayedMovies: Movie[] = [];
+  displayedPopularMovies: Movie[] = [];
   currentIndex = 0;
   itemsPerPage = 4;
   currentMovie = 'now';
   store=inject(MovieStore)
   movieData:any
-  searchMovie: string = '';
-
+  searchPopularMovie: string = '';
+  searchUpcomingMovie:string='';
   // Sample list of movies
   movies: string[] = [
     'Inception',
@@ -44,6 +48,8 @@ export default class movieListComponent implements OnInit {
     this.store.addMovieList();
     this.getCurrentMovieList()
     this.updateVisibleMovies();
+
+    this.popularMovies()
   }
 
   getCurrentMovieList() {
@@ -60,34 +66,42 @@ export default class movieListComponent implements OnInit {
   }
 
   updateVisibleMovies(): void {
-   const movieList = this.getCurrentMovieList();
-   const filtered = this.searchMovie
-   ? movieList.filter((movie:any) =>
-       movie.title.toLowerCase().includes(this.searchMovie.toLowerCase())
-     )
-   : movieList;
+    const movieList = this.getCurrentMovieList();
+    this.displayedMovies  = this.searchUpcomingMovie
+      ? movieList.filter((movie: any) =>
+          movie.title.toLowerCase().includes(this.searchUpcomingMovie.toLowerCase())
+        )
+      : movieList;   
+  }
 
-   this.displayedMovies = filtered.slice(this.currentIndex, this.currentIndex + this.itemsPerPage);
+  popularMovies(): void {
+    const movieList = this.getCurrentMovieList();
+
+    this.displayedPopularMovies  = this.searchPopularMovie
+      ? movieList.filter((movie: any) =>
+          movie.title.toLowerCase().includes(this.searchPopularMovie.toLowerCase())
+        )
+      : movieList;
   }
 
   
-  next(): void {
-   const movieList = this.getCurrentMovieList();
-    if (this.currentIndex + this.itemsPerPage < movieList.length) {
-      this.currentIndex++;
-      this.updateVisibleMovies();
-    }
-  }
+  // next(): void {
+  //  const movieList = this.getCurrentMovieList();
+  //   if (this.currentIndex + this.itemsPerPage < movieList.length) {
+  //     this.currentIndex++;
+  //     this.updateVisibleMovies();
+  //   }
+  // }
   onSearchChange(): void {
     this.currentIndex = 0;
     this.updateVisibleMovies();
   }
-  prev(): void {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.updateVisibleMovies();
-    }
-  }
+  // prev(): void {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //     this.updateVisibleMovies();
+  //   }
+  // }
 
   showSelectedList(type: string): void {
     this.currentMovie = type;
