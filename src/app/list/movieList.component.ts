@@ -104,6 +104,8 @@ export default class movieListComponent implements OnInit {
   // }
 
   showSelectedList(type: string): void {
+    let elem = document.getElementById(type)
+    elem?.scrollIntoView();
     this.currentMovie = type;
     this.currentIndex = 0;
     this.updateVisibleMovies();

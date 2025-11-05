@@ -1,194 +1,25 @@
-  // .img-background {
-  //     position: relative;
-  //     width: 100%;
-  //     height: 480px;
-  //     overflow: hidden;
-  // }
 
-  // .background-image {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //     object-fit: cover;
-  // }
-
-    .container-view{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      background-color: #cccccc;
-      padding: 17px;
-      border-radius: 6px;
-      box-shadow: 2px 2px 4px #7c7c7c;
-  }
-
-  .container-textt{
-    display: flex;
-    gap: 40px;
-  }
-
-
- .example-card{
-    padding: 4px;
-    //box-shadow: 2px 3px 3px gray;
-    height: fit-content;
-    cursor: pointer;
-  }
-
-
-  .example-card:hover{
-    background-color: #4cc155;
-  }
-
-  // .button-view{
-  //   border: none;
-  //   background-color: transparent;
-  // }
-  .active-button {
-    // background-color: #ff9800 !important;  
-    // border-color: #ff9800 !important;
-   // color: rgb(43, 34, 144) !important;
-  }
-
-
-
-
-
-  .slide-container {
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .slide-track {
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: scrollUp 15s linear infinite;
-    margin-left: 20px;
     
-  }
-  .slide-track::after {
-    content: "";
-    display: block;
-  }
-  /* Base image styles */
-  .imgg {
-    width: 100%;
-    max-width: 200px;
-    height: 100px;
-    aspect-ratio: 1 / 1; /* keeps square ratio */
-    object-fit: cover;
-    margin: 5px 0;
-    border-radius: 8px;
-    margin-top: 20px;
-  }
 
-  /* Vertical animation */
-  @keyframes scrollUp {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-39%); /* move up by half of the track height */
-    }
-  }
-
-  /* RESPONSIVE BREAKPOINTS */
-  @media (max-width: 992px) {
-    .slide-container {
-      height: 250px;
-    }
-
-    .imgg {
-      max-width: 200px;
-    }
-
-    @keyframes slideUp {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-120%); }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .slide-container {
-      height: 200px;
-    }
-
-    .imgg {
-      max-width: 150px;
-    }
-
-    @keyframes slideUp {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-130%); }
-    }
-  }
-
-  @media (max-width: 576px) {
-    .slide-container {
-      height: 150px;
-    }
-
-    .imgg {
-      max-width: 120px;
-    }
-
-    @keyframes slideUp {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-140%); }
-    }
-  }
-
-  .button-group {
-    display: flex;
-    gap: 10px;       /* spacing between buttons */
-    justify-content: center;
-    flex-wrap: wrap;  /* wrap buttons on small screens */
-  }
+  // .button-group {
+  //   display: flex;
+  //   gap: 10px;     
+  //   justify-content: center;
+  //   flex-wrap: wrap;  
+  // }
   
-  .button-group button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(128, 195, 65);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+  // .button-group button {
+  //   padding: 8px 16px;
+  //   border: none;
+  //   border-radius: 5px;
+  //   background-color: rgb(128, 195, 65);
+  //   color: white;
+  //   cursor: pointer;
+  //   transition: background-color 0.3s;
+  // }
 
 
-  .text-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at center, rgb(80 209 80 / 0%), #000 70%);
-    color: white;
-    position: relative;
-  }
-  
-  /* Optional blur glow */
-  .text-center::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: rgba(0, 255, 0, 0.2);
-    filter: blur(100px);
-    border-radius: 50%;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-  }
+
   
   // .hero-section h1 {
   //   font-size: 3rem;
@@ -236,11 +67,11 @@
     font-size: x-large;
   }
 
-  .no-overflow {
-    margin-right: 0;
-    margin-left: 0;
-    overflow-x: hidden;
-  }
+  // .no-overflow {
+  //   margin-right: 0;
+  //   margin-left: 0;
+  //   overflow-x: hidden;
+  // }
 
  .movieTitles {
   color: rgb(128, 195, 65);
@@ -249,3 +80,263 @@
     
     }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    .no-overflow {
+      margin: 0;
+      overflow-x: hidden;
+      background-color: black;
+    }
+    
+    /* -----------------------------
+       GENERAL TEXT STYLES
+    ------------------------------ */
+    .welcome-title {
+      color: rgb(128, 195, 65);
+      margin-bottom: 20px;
+      font-size: xx-large;
+      font-family: sans-serif;
+      z-index: 10;
+    }
+    
+    // .text-center {
+    //   text-align: center;
+    //   color: white;
+    //   position: relative;
+    //   z-index: 1;
+    // }
+
+
+    .text-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, rgb(80 209 80 / 0%), #000 70%);
+      color: white;
+      position: relative;
+    }
+    
+    /* Optional blur glow */
+    .text-center::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgb(0 255 0 / 19%);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      z-index: 10;
+    }
+    
+    .button-group button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgb(128, 195, 65);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .button-group button:hover {
+      background-color: #4cc155;
+      transform: scale(1.05);
+    }
+    
+    .example-card {
+      padding: 4px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .example-card:hover {
+      background-color: #4cc155;
+    }
+    
+    /* ----------------------------------
+       SLIDER STYLES (DESKTOP)
+    ----------------------------------- */
+    .slide-container {
+      width: 25%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .slide-track {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: scrollUp 25s linear infinite;
+    }
+    
+    .slide-container.reverse .slide-track {
+      animation: scrollDown 25s linear infinite;
+    }
+    
+    .imgg {
+      width: 90%;
+      max-width: 200px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 10px 0;
+      transition: transform 0.3s;
+    }
+    
+    .imgg:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Vertical animation (Desktop) */
+    @keyframes scrollUp {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+    
+    @keyframes scrollDown {
+      0% {
+        transform: translateY(-50%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    /* ----------------------------------
+       CENTER CONTENT AREA
+    ----------------------------------- */
+    .main-content {
+      flex: 1;
+      text-align: center;
+      padding: 40px 20px;
+      color: white;
+    }
+    
+    .text-info {
+      margin: 20px 40px;
+      padding: 10px;
+    }
+    
+    .text-span {
+      color: white;
+      font-family: cursive;
+      font-size: large;
+    }
+    
+    /* ----------------------------------
+       RESPONSIVENESS (MOBILE)
+    ----------------------------------- */
+    @media (max-width: 768px) {
+      .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      /* Convert sliders to horizontal layout */
+      .slide-container {
+        width: 100%;
+        height: 130px;
+        margin: 10px 0;
+        z-index: 10;
+      }
+    
+      .slide-track {
+        flex-direction: row;
+        animation: scrollLeft 20s linear infinite;
+      }
+    
+      .slide-container.reverse .slide-track {
+        animation: scrollRight 20s linear infinite;
+      }
+    
+      .imgg {
+        width: 110px;
+        height: 100px;
+        margin: 0 8px;
+      }
+    
+      /* ORDER: Upper Slider → Center Content → Lower Slider */
+      .col-3.slide-container:first-of-type {
+        order: 1;
+      }
+    
+      .col-6 {
+        order: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+      }
+    
+      .col-3.slide-container.reverse {
+        order: 3;
+      }
+    
+      /* Adjust text alignment for small screens */
+      .text-center h3 {
+        font-size: 1.3rem;
+        line-height: 1.5;
+      }
+    
+      /* Horizontal scroll animations */
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    
+      @keyframes scrollRight {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+    
