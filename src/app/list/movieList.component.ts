@@ -111,4 +111,16 @@ export default class movieListComponent implements OnInit {
       }
     });
   }
+
+  showMovieDetails(data:any){
+    const dialogRef = this.dialog.open(AddMovieComponent, {
+      width: '50%',
+      height:'auto',
+      disableClose: true,
+      data:{
+        viewData:data,
+      }
+      
+    });
+  }
 }

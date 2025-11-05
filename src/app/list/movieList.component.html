@@ -1,120 +1,100 @@
 <jhi-navbar></jhi-navbar>
 
-<!-- <div class="img-background">
-  <img src="assets/images/image.png" alt="Background" class="background-image " />
-</div> -->
-
-
-<div class="row" >
-  <!-- Left Column -->
+<div class="row mt-2 no-overflow">
   <div class="col-3 slide-container ">
     <div class="slide-track slide-left">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <!-- duplicate first image for smooth loop -->
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
+      <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
+      <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
+      <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
+      <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
+      <img src="assets/images/SRK.jpg" alt="" class="imgg">
     </div>
 
-    <div class="slide-track slide-left ">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <!-- duplicate first image for smooth loop -->
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
+    <div class="slide-track slide-right">
+      <img src="assets/images/SRK.jpg" alt="" class="imgg">
+      <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
+      <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
+      <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
+      <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
     </div>
   </div>
 
-  <!-- Center Column -->
   <div class="col-6 d-flex justify-content-center align-items-center">
     <div class="text-center">
-      <!-- Heading -->
       <h3 style="color: rgb(128, 195, 65); margin-bottom: 20px;  font-size: xx-large;
     font-family: sans-serif3;">
         WELCOME TO MOVIES WORLD
       </h3>
 
       <h3>Discover, Watch, and Enjoy the World of Movies</h3>
-  
-      <!-- Buttons -->
+
       <div class="button-group">
         <button [ngClass]="{'active-button': currentMovie === 'upcoming'}"
           (click)="showSelectedList('upcoming')">Upcoming</button>
-  
+
         <button [ngClass]="{'active-button': currentMovie === 'popular'}"
           (click)="showSelectedList('popular')">Popular</button>
-  
-        <button [ngClass]="{'active-button': currentMovie === 'add'}"
-          (click)="addMovie()">Add Movie</button>
+
+        <button [ngClass]="{'active-button': currentMovie === 'add'}" (click)="addMovie()">Add Movie</button>
       </div>
-    </div> 
+    </div>
   </div>
 
-  <!-- Right Column -->
   <div class="col-3 slide-container ">
-    <div class="slide-track slide-right" >
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
+    <div class="slide-track slide-right">
+      <img src="assets/images/SRK.jpg" alt="" class="imgg">
+      <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
+      <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
+      <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
+      <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
     </div>
     <div class="slide-track ">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
-      <!-- duplicate first image for smooth loop -->
-      <img src="assets/images/Venom.jpg" alt="" class="imgg">
+      <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
+      <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
+      <img src="assets/images/kajol.jpeg" alt="" class="imgg">
+      <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
+      <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
     </div>
   </div>
 </div>
-
-
-<div class="container container-view mt-4">
-  <div>
-    <span>MOVIES</span>
-  </div>
-
-  <div class="container-textt">
-  
-
-  </div>
+<div class="text-info" >
+    
+  <span class="text-span">Welcome to [Your Website Name], the home for every movie enthusiast.
+    We built this platform to help film lovers discover, catalog, and enjoy movies in the most organized way possible. 
+    Whether you’re a casual viewer or a hardcore cinephile, our movie library offers:</span> 
 
 </div>
 
-<!-- <div>
-  search Movie:<input type="text" [(ngModel)]="searchMovie">
-  <div *ngFor="let movie of filteredMovie()">
-    {{movie}}
+<div class="container mt-4 ">
+
+    <h3 style="color: white; text-align: center;">Upcoming Movies</h3>
+  
+  <div class="d-flex align-items-center justify-content-between mt-3">
+    <button class="btn btn-outline-primary me-2 mb-2" (click)="prev()" [disabled]="currentIndex === 0">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <div class="row w-100 justify-content-center">
+      <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <mat-card class="example-card" appearance="outlined" (click)="showMovieDetails(mov)">
+          <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
+          <mat-card-content>
+            <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <button class="btn btn-outline-primary ms-2 mb-2" (click)="next()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
   </div>
-</div> -->
+</div>
 
+<div class="container mt-4 ">
+  <h3 style="color: white; text-align: center;">Popular Movies</h3>
 
-<!-- <div class="grid-wrapper">
-  <ag-grid-angular
-    style="width: 100%"
-    class="ag-theme-quartz"
-    #agGrid
-    [rowData]="rowData"
-    [columnDefs]="columnDefs"
-    [defaultColDef]="defaultColDef"
-    [domLayout]="domLayout"
-    [rowSelection]="rowSelection"
-    [suppressRowClickSelection]="true"
-    [pagination]="true"
-    [paginationPageSize]="20"
-    (gridReady)="onGridReady($event)"
-  />
-</div> -->
-<!-- i used mat card to show data on card -->
-<div class="container mt-4 d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between mt-3">
   <button class="btn btn-outline-primary me-2 mb-2" (click)="prev()" [disabled]="currentIndex === 0">
     <mat-icon>chevron_left</mat-icon>
   </button>
@@ -122,9 +102,9 @@
   <div class="row w-100 justify-content-center">
     <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
       <mat-card class="example-card" appearance="outlined">
-        <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 325px;" />
+        <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
         <mat-card-content>
-          <mat-card-title>{{ mov.title }}</mat-card-title>
+          <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
         </mat-card-content>
       </mat-card>
     </div>
@@ -134,37 +114,4 @@
     <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
-
-
-
-<!-- 
-  <section id="home-client" class="home-client">
-    <div class="container-fluid">
-      <div class="slick-slider slick-initialized" dir="ltr">
-        <button type="button" data-role="none" class="slick-arrow slick-prev" style="display: block;"> Previous</button>
-        <div class="slick-list">
-          <div class="slick-track" style="width: 4503px; opacity: 1; transform: translate3d(-1422px, 0px, 0px);">
-            <div data-index="-5" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;">
-              <div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="assets/images/Venom.jpg" class="img-fluid" alt=""></div></div></div><div data-index="-4" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;">
-                <div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="assets/images/Venom.jpg" class="img-fluid" alt="">
-                </div>
-              </div></div>
-              <div data-index="-3" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/9.e3a94483edb9cf9305f4.png" class="img-fluid" alt="">
-                </div></div></div>
-                <div data-index="-2" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/10.d72997bcd55dec89d671.png" class="img-fluid" alt=""></div></div></div><div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;">
-                  <div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="assets/images/Venom.jpg" class="img-fluid" alt=""></div></div></div><div data-index="1" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/mallows.e84986e7e1eb4ced98f9.png" class="img-fluid" alt=""></div></div></div><div data-index="2" class="slick-slide slick-active" tabindex="-1" aria-hidden="false" style="outline: none; width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/pro.a996d92973966b85b64a.png" class="img-fluid" alt="">
-                  </div></div></div><div data-index="3" class="slick-slide slick-active" tabindex="-1" aria-hidden="false" style="outline: none; width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/ioraClient.8484d37e3d816a8c88a8.png" class="img-fluid" alt="">
-                  </div></div></div><div data-index="4" class="slick-slide slick-active" tabindex="-1" aria-hidden="false" style="outline: none; width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/9.e3a94483edb9cf9305f4.png" class="img-fluid" alt="">
-                  </div></div></div><div data-index="5" class="slick-slide slick-active" tabindex="-1" aria-hidden="false" style="outline: none; width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/10.d72997bcd55dec89d671.png" class="img-fluid" alt=""></div></div></div><div data-index="6" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;">
-                    <img src="assets/images/Venom.jpg" class="img-fluid" alt="">
-                  </div></div></div><div data-index="7" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/27.90fdde73850dbb180ae7.png" class="img-fluid" alt=""></div></div></div><div data-index="8" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/mallows.e84986e7e1eb4ced98f9.png" class="img-fluid" alt=""></div></div></div><div data-index="9" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/pro.a996d92973966b85b64a.png" class="img-fluid" alt=""></div></div></div><div data-index="10" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/ioraClient.8484d37e3d816a8c88a8.png" class="img-fluid" alt=""></div></div></div><div data-index="11" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/9.e3a94483edb9cf9305f4.png" class="img-fluid" alt="">
-                  </div></div></div><div data-index="12" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/10.d72997bcd55dec89d671.png" class="img-fluid" alt=""></div></div></div><div data-index="13" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 237px;"><div><div class="client-logo" tabindex="-1" style="width: 100%; display: inline-block;"><img src="/static/media/omdance.af6b390d785867929188.png" class="img-fluid" alt=""></div></div></div></div></div>
-              <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;"> Next</button>
-            </div></div>
-          </section> -->
-
-
-
-
-
-
+</div>

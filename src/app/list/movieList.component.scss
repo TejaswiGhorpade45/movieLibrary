@@ -32,9 +32,10 @@
 
 
  .example-card{
-    padding: 10px;
-    box-shadow: 2px 3px 3px gray;
+    padding: 4px;
+    //box-shadow: 2px 3px 3px gray;
     height: fit-content;
+    cursor: pointer;
   }
 
 
@@ -216,3 +217,27 @@
   // .hero-section button:hover {
   //   background: #57e600;
   // }
+
+
+  .movieTitle{
+    font-family: serif;
+    text-align: center;
+    font-size: medium;
+  }
+
+  .text-info{
+    margin: 10px 80px 0px 80px;
+    padding: 10px;
+  }
+
+  .text-span{
+    color: white;
+    font-family: cursive;
+    font-size: x-large;
+  }
+
+  .no-overflow {
+    margin-right: 0;
+    margin-left: 0;
+    overflow-x: hidden;
+  }

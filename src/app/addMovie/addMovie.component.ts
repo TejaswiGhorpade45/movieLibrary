@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, inject, signal, OnInit, HostListener, ElementRef, Inject } from '@angular/core';
 import NavbarComponent from '../navbar/navbar.component';
 import {MatCardModule} from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 interface User {
   id: number;
   name: string;
@@ -36,8 +36,11 @@ export default class AddMovieComponent implements OnInit {
   };
 
   previewUrl: string | ArrayBuffer | null = null;
+  dataForView:any
+  constructor(private dialogRef: MatDialogRef<AddMovieComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
 
-  constructor(private dialogRef: MatDialogRef<AddMovieComponent>) {}
+    this.dataForView=data.viewData
+  }
   ngOnInit(): void {
   }
 
