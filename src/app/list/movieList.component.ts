@@ -1,5 +1,4 @@
-
-import { Component, inject, signal, OnInit, HostListener, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit,  ChangeDetectorRef } from '@angular/core';
 import NavbarComponent from '../navbar/navbar.component';
 import {MatCardModule} from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -7,7 +6,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import AddMovieComponent from '../addMovie/addMovie.component';
 import { MovieStore } from '../store/movie.store';
-import { time } from 'console';
 import { FormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,112 +20,64 @@ import { MatInputModule } from '@angular/material/input';
   providers:[MovieStore]
 })
 export default class movieListComponent implements OnInit {
-  displayedMovies: Movie[] = [];
-  displayedPopularMovies: Movie[] = [];
-  currentIndex = 0;
-  itemsPerPage = 4;
-  currentMovie = 'now';
-  store=inject(MovieStore)
-  movieData:any
   searchPopularMovie: string = '';
   searchUpcomingMovie:string='';
-  // Sample list of movies
-  movies: string[] = [
-    'Inception',
-    'Interstellar',
-    'The Dark Knight',
-    'Tenet',
-    'Dunkirk',
-    'Memento',
-    'The Prestige'
+   searchPlayingMovie: string = '';
+   displayedNowMovies: Movie[] = [
+    { title: "BHOOTNI", image: "assets/images/BhootniMovie.jpeg" },
+    { title: "DAMSEL", image: "assets/images/Damsel.jpeg" },
+    { title: "DUDE", image: "assets/images/dude.jpg" },
+    { title: "SINGHAM AGAIN", image: "assets/images/Singham.jpg" },
+    { title: "DUDE", image: "assets/images/dude.jpg" },
+    { title: "SINGHAM AGAIN", image: "assets/images/Singham.jpg" }
   ];
+
+  displayedUpcomingMovies: Movie[] = [
+    { title: "Ant-Man", image: "assets/images/Ant-Man.jpg" },
+    { title: "Inception", image: "assets/images/inception.jpg" },
+    { title: "Titanic", image: "assets/images/titanic.jpg" }
+  ];
+
+  displayedPopularMovies : Movie[] = [
+    { title: "KALKI", image: "assets/images/Kalki.jpg" },
+    { title: "VENOM", image: "assets/images/Venom.jpg" },
+    { title: "DIESEL", image: "assets/images/Diesel.jpg" },
+  ];
+
+  showSelectedList(type: string): void {
+    let elem = document.getElementById(type)
+    elem?.scrollIntoView();
+  }
   constructor(public dialog: MatDialog,private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    // used store for storing local data 
-    this.store.addMovieList();
-    this.getCurrentMovieList()
-    this.updateVisibleMovies();
-
-    this.popularMovies()
   }
-
-  getCurrentMovieList() {
-    // I acessed Local stored data 
-    const movieDetails = this.store.movieDetails();
-    switch (this.currentMovie) {
-      case 'upcoming':
-        return movieDetails.upComingMovies;
-      case 'popular':
-        return movieDetails.popular;
-      default:
-        return movieDetails.nowMovies;
-    }
-  }
-
-  updateVisibleMovies(): void {
-    const movieList = this.getCurrentMovieList();
-    this.displayedMovies  = this.searchUpcomingMovie
-      ? movieList.filter((movie: any) =>
-          movie.title.toLowerCase().includes(this.searchUpcomingMovie.toLowerCase())
-        )
-      : movieList;   
-  }
-
   popularMovies(): void {
-    const movieList = this.getCurrentMovieList();
-
+    const movieList = this.displayedPopularMovies;
+    if( this.searchPopularMovie !== ''){   
     this.displayedPopularMovies  = this.searchPopularMovie
       ? movieList.filter((movie: any) =>
           movie.title.toLowerCase().includes(this.searchPopularMovie.toLowerCase())
         )
       : movieList;
+    }
   }
-
-  
-  // next(): void {
-  //  const movieList = this.getCurrentMovieList();
-  //   if (this.currentIndex + this.itemsPerPage < movieList.length) {
-  //     this.currentIndex++;
-  //     this.updateVisibleMovies();
-  //   }
-  // }
-  onSearchChange(): void {
-    this.currentIndex = 0;
-    this.updateVisibleMovies();
+  upcomingMovies(){
+    const movieList = this.displayedUpcomingMovies;
+    this.displayedUpcomingMovies  = this.searchUpcomingMovie
+      ? movieList.filter((movie: any) =>
+          movie.title.toLowerCase().includes(this.searchUpcomingMovie.toLowerCase())
+        )
+      : movieList;
   }
-  // prev(): void {
-  //   if (this.currentIndex > 0) {
-  //     this.currentIndex--;
-  //     this.updateVisibleMovies();
-  //   }
-  // }
-
-  showSelectedList(type: string): void {
-    let elem = document.getElementById(type)
-    elem?.scrollIntoView();
-    this.currentMovie = type;
-    this.currentIndex = 0;
-    this.updateVisibleMovies();
+  nowPlayingMovies(){
+    const movieList = this.displayedNowMovies;
+    this.displayedNowMovies  = this.searchPlayingMovie
+      ? movieList.filter((movie: any) =>
+          movie.title.toLowerCase().includes(this.searchPlayingMovie.toLowerCase())
+        )
+      : movieList;
   }
-
-  addMovie(): void {
-    //here open dialog for adding movie 
-    const dialogRef = this.dialog.open(AddMovieComponent, {
-      width: '50%',
-      height:'auto',
-      disableClose: true,
-    });
-
-    dialogRef.afterClosed().subscribe((result: Movie) => {
-      if (result) {
-        this.store.addMovieToCategory(result);
-        this.updateVisibleMovies();
-        this.cdr.detectChanges();
-      }
-    });
-  }
-
   showMovieDetails(data:any){
     const dialogRef = this.dialog.open(AddMovieComponent, {
       width: '50%',

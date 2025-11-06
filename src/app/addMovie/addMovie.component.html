@@ -1,44 +1,33 @@
+<!-- Overlay / Modal -->
+<div class="overlay">
+  <mat-card class="display-card">
+    <!-- Title at the top -->
+    <mat-toolbar color="primary" class="toolbar">
+      <span>{{ dataForView.title }}</span>
+    </mat-toolbar>
 
+    <!-- Description / Content in center -->
+    <mat-card-content class="content">
+    <div class="content-row">
+      <!-- Image on the left -->
+      <div class="image-preview" *ngIf="dataForView.image">
+        <img [src]="dataForView.image" alt="{{ dataForView.title }}" />
+      </div>
 
-<!-- This is Form of Add Movie  -->
-
- <mat-toolbar>
-  <span>Add Movie</span>
-  <span class="example-spacer"></span>
-
-  <button matIconButton class="example-icon" (click)="closeDialog()">
-    <mat-icon>clear</mat-icon>
-  </button>
-</mat-toolbar>
-
-<mat-card-content>
-  <!-- <form (ngSubmit)="addMovie()" #movieForm="ngForm">
-    <div class="form-group">
-      <label for="title">Movie Title:</label>
-      <input type="text" id="title" [(ngModel)]="newMovie.title" name="title" accept="image/png, image/jpeg" required />
+      <!-- Text on the right -->
+      <div class="text-content">
+        <p>Watch {{ movie.title }} right now or download it to enjoy later — anywhere, anytime</p>
+        <!-- Optional Category -->
+        <!-- <p><strong>Category:</strong> {{ dataForView.category }}</p> -->
+      </div>
     </div>
-  
-    <div class="form-group mt-2">
-      <label for="category">Category:</label>
-      <select id="category" [(ngModel)]="newMovie.category" name="category" required>
-        <option value="now">Now Playing</option>
-        <option value="upcoming">Upcoming</option>
-        <option value="popular">Popular</option>
-      </select>
-    </div>
-  
-    <div class="form-group mt-2">
-      <label for="image">Upload Image:</label>
-      <input type="file" id="image" (change)="onImageSelected($event)" accept="image/*" />
-    </div>
-  
-    <div class="form-group preview" *ngIf="previewUrl">
-      <img [src]="previewUrl" width="200" />
-    </div>
-  
-    <mat-card-actions align="end">
-      <button mat-button (click)="closeDialog()">Cancel</button>
-      <button mat-raised-button color="accent" type="submit" >Add Movie</button>
+  </mat-card-content>
+
+    <!-- Buttons at the bottom -->
+    <mat-card-actions class="button-row">
+      <button mat-button color="primary" (click)="onCancel()">Watch</button>
+      <button mat-button color="primary" (click)="onCancel()">Download</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
     </mat-card-actions>
-  </form> -->
-</mat-card-content> 
+  </mat-card>
+</div>

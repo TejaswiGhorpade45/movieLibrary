@@ -22,12 +22,13 @@ interface User {
   selector: 'jhi-addMovie',
   templateUrl: './addMovie.component.html',
   styleUrl: './addMovie.component.scss',
-  imports: [CommonModule,NavbarComponent,MatButtonModule,MatIconModule,FormsModule,MatSelectModule,
+  imports: [CommonModule,MatButtonModule,MatIconModule,FormsModule,MatSelectModule,
     MatFormFieldModule,ReactiveFormsModule,MatInputModule,MatToolbarModule,MatCardModule
   ],
 })
 export default class AddMovieComponent implements OnInit {
   userForm!: FormGroup;
+  movie:any = {}
   newMovie: Movie = {
     id: 0,
     title: '',
@@ -40,6 +41,9 @@ export default class AddMovieComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<AddMovieComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.dataForView=data.viewData
+
+    console.log(this.dataForView);
+    
   }
   ngOnInit(): void {
   }
@@ -96,69 +100,7 @@ export default class AddMovieComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // 
-  // users: User[] = [];
-  // editMode = false;
-  // currentUserId: number | null = null;
-
-  // constructor(private fb: FormBuilder) {}
-
-  // ngOnInit(): void {
-  //   this.userForm = this.fb.group({
-  //     name: ['', [Validators.required, Validators.minLength(3)]],
-  //     email: ['', [Validators.required, Validators.email]],
-  //     status:['',Validators.required]
-  //   });
-
-  //   this.loadUsers();
-  // }
-
-  // // Load users from local storage
-  // loadUsers() {
-  //   const data = localStorage.getItem('users');
-  //   this.users = data ? JSON.parse(data) : [];
-  // }
-
-  // // Save to local storage
-  // saveToLocalStorage() {
-  //   localStorage.setItem('users', JSON.stringify(this.users));
-  // }
-
-  // onSubmit() {
-  //   if (this.userForm.invalid) return;
-
-  //   const userData = {
-  //     id: this.currentUserId ?? new Date().getTime(),
-  //     ...this.userForm.value
-  //   };
-
-  //   if (this.editMode) {
-  //     const index = this.users.findIndex(u => u.id === this.currentUserId);
-  //     this.users[index] = userData;
-  //     this.editMode = false;
-  //   } else {
-  //     this.users.push(userData);
-  //   }
-
-  //   this.saveToLocalStorage();
-  //   this.userForm.reset();
-  //   this.currentUserId = null;
-  // }
-
-  // editUser(user: User) {
-  //   this.editMode = true;
-  //   this.currentUserId = user.id;
-  //   this.userForm.patchValue(user);
-  // }
-
-  // deleteUser(id: number) {
-  //   this.users = this.users.filter(u => u.id !== id);
-  //   this.saveToLocalStorage();
-  // }
-
-  // cancelEdit() {
-  //   this.editMode = false;
-  //   this.currentUserId = null;
-  //   this.userForm.reset();
-  // }
+  onCancel(){
+    this.closeDialog()
+  }
 }

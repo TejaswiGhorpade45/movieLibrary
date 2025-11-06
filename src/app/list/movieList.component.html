@@ -1,5 +1,3 @@
-
-
 <jhi-navbar></jhi-navbar>
 
 <div class="row mt-2 no-overflow">
@@ -11,7 +9,6 @@
       <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
       <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
       <img src="assets/images/SRK.jpg" alt="" class="imgg">
-      <!-- Duplicate for infinite scroll -->
       <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
       <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
       <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
@@ -29,14 +26,16 @@
       <h3 style="z-index: 10;">Discover, Watch, and Enjoy the World of Movies</h3>
 
       <div class="button-group">
-        <button [ngClass]="{'active-button': currentMovie === 'upcoming'}"
+        <button 
+          (click)="showSelectedList('nowPlaying')">Now Playing</button>
+
+        <button 
           (click)="showSelectedList('upcoming')">Upcoming</button>
 
-        <button [ngClass]="{'active-button': currentMovie === 'popular'}"
+        <button 
           (click)="showSelectedList('popular')">Popular</button>
 
-        <button [ngClass]="{'active-button': currentMovie === 'add'}"
-          (click)="addMovie()">Add Movie</button>
+
       </div>
     </div>
   </div>
@@ -49,7 +48,7 @@
       <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
       <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
       <img src="assets/images/Kangana-Ranaut.jpg" alt="" class="imgg">
-      <!-- Duplicate for infinite scroll -->
+      \
       <img src="assets/images/SRK.jpg" alt="" class="imgg">
       <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
       <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
@@ -62,20 +61,27 @@
 <!-- TEXT SECTION -->
 <div class="text-info">
   <span class="text-span">
-    Welcome to [Your Website Name], the home for every movie enthusiast.
+    Welcome to The Cinematic Universe, the home for every movie enthusiast.
     We built this platform to help film lovers discover, catalog, and enjoy movies in the most organized way possible.
     Whether you’re a casual viewer or a hardcore cinephile, our movie library offers:
   </span>
 </div>
 
-<!-- <div class="container mt-4 " id="upcoming">
 
-    <h3 style="color: white; text-align: center;">Upcoming Movies</h3>
-  
-  <div class="d-flex align-items-center justify-content-between mt-3">
-   
-    <div class="row w-100 justify-content-center">
-      <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+
+<div class="container mt-4 " id="nowPlaying">
+  <h3 class="movieTitles">Now Playing Movies</h3>
+  <div class="custom-search d-flex justify-content-center mt-3">
+    <mat-form-field appearance="outline" class="w-50">
+      <mat-label>Search movie</mat-label>
+      <input matInput type="text" placeholder="Enter movie name" [(ngModel)]="searchPlayingMovie"
+        (ngModelChange)="nowPlayingMovies()" />
+      <mat-icon matSuffix class="iconSearch">search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <div class="row w-100">
+      <div *ngFor="let mov of displayedNowMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
         <mat-card class="example-card" appearance="outlined" (click)="showMovieDetails(mov)">
           <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
           <mat-card-content>
@@ -84,91 +90,56 @@
         </mat-card>
       </div>
     </div>
-
-  
   </div>
-</div> -->
+</div>
+
 
 <div class="container mt-4 " id="upcoming">
-
   <h3 class="movieTitles">Upcoming Movies</h3>
-  <div class="d-flex justify-content-center mt-3">
+  <div class="custom-search d-flex justify-content-center mt-3">
     <mat-form-field appearance="outline" class="w-50">
       <mat-label>Search movie</mat-label>
-      <input
-        matInput
-        type="text"
-        placeholder="Enter movie name"
-        [(ngModel)]="searchUpcomingMovie"
-        (ngModelChange)="onSearchChange()"
-      />
-      <mat-icon matSuffix>search</mat-icon>
+      <input matInput type="text" placeholder="Enter movie name" [(ngModel)]="searchUpcomingMovie"
+        (ngModelChange)="upcomingMovies()" />
+      <mat-icon matSuffix class="iconSearch">search</mat-icon>
     </mat-form-field>
   </div>
-
-<div class="d-flex align-items-center justify-content-between mt-3">
-
-  <div class="row w-100 justify-content-center">
-    <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-      <mat-card class="example-card" appearance="outlined" (click)="showMovieDetails(mov)">
-        <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
-        <mat-card-content>
-          <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
-        </mat-card-content>
-      </mat-card>
+  <div class="d-flex justify-content-between mt-3">
+    <div class="row w-100">
+      <div *ngFor="let mov of displayedUpcomingMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <mat-card class="example-card" appearance="outlined" (click)="showMovieDetails(mov)">
+          <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
+          <mat-card-content>
+            <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>
-</div>
-
-<!-- <div class="container mt-4 " id="popular">
-  <h3 style="color: white; text-align: center;">Popular Movies</h3>
-
-<div class="d-flex align-items-center justify-content-between mt-3">
 
 
-  <div class="row w-100 justify-content-center">
-    <div *ngFor="let mov of displayedMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-      <mat-card class="example-card" appearance="outlined">
-        <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
-        <mat-card-content>
-          <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-
-
-</div>
-</div> -->
 
 <div class="container mt-4 " id="popular">
-  <h3  class="movieTitles">Popular Movies</h3>
+  <h3 class="movieTitles">Popular Movies</h3>
   <div class="d-flex justify-content-center mt-3">
     <mat-form-field appearance="outline" class="w-50">
       <mat-label>Search movie</mat-label>
-      <input
-        matInput
-        type="text"
-        placeholder="Enter movie name"
-        [(ngModel)]="searchPopularMovie"
-        (ngModelChange)="onSearchChange()"
-      />
-      <mat-icon matSuffix>search</mat-icon>
+      <input matInput type="text" placeholder="Enter movie name" [(ngModel)]="searchPopularMovie"
+        (ngModelChange)="popularMovies()" />
+      <mat-icon matSuffix class="iconSearch">search</mat-icon>
     </mat-form-field>
   </div>
-<div class="d-flex align-items-center justify-content-between mt-3">
-
-  <div class="row w-100 justify-content-center">
-    <div *ngFor="let mov of displayedPopularMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-      <mat-card class="example-card" appearance="outlined">
-        <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
-        <mat-card-content>
-          <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
-        </mat-card-content>
-      </mat-card>
+  <div class="d-flex align-items-center justify-content-between mt-3">
+    <div class="row w-100 ">
+      <div *ngFor="let mov of displayedPopularMovies" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <mat-card class="example-card" appearance="outlined" (click)="showMovieDetails(mov)">
+          <img mat-card-image [src]="mov.image" [alt]="mov.title" style="height: 215px;" />
+          <mat-card-content>
+            <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
-
 </div>
-</div> 
