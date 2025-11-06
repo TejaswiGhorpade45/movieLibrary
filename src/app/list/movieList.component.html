@@ -26,14 +26,11 @@
       <h3 style="z-index: 10;">Discover, Watch, and Enjoy the World of Movies</h3>
 
       <div class="button-group">
-        <button 
-          (click)="showSelectedList('nowPlaying')">Now Playing</button>
+        <button (click)="showSelectedList('nowPlaying')">Now Playing</button>
 
-        <button 
-          (click)="showSelectedList('upcoming')">Upcoming</button>
+        <button (click)="showSelectedList('upcoming')">Upcoming</button>
 
-        <button 
-          (click)="showSelectedList('popular')">Popular</button>
+        <button (click)="showSelectedList('popular')">Popular</button>
 
 
       </div>
@@ -48,7 +45,7 @@
       <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
       <img src="assets/images/aishwarya-rai.jpg" alt="" class="imgg">
       <img src="assets/images/kajol.jpeg" alt="" class="imgg">
-      
+
       <img src="assets/images/SRK.jpg" alt="" class="imgg">
       <img src="assets/images/priyanka-chopra.jpg" alt="" class="imgg">
       <img src="assets/images/Ajay-Devgan.jpg" alt="" class="imgg">
@@ -89,6 +86,10 @@
           </mat-card-content>
         </mat-card>
       </div>
+
+      <div *ngIf="!displayedNowMovies.length">
+        <p style="color: red; text-align: center;"> No Movies Found</p>
+      </div>
     </div>
   </div>
 </div>
@@ -113,6 +114,9 @@
             <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
           </mat-card-content>
         </mat-card>
+      </div>
+      <div *ngIf="!displayedUpcomingMovies.length">
+        <p style="color: red; text-align: center;"> No Movies Found</p>
       </div>
     </div>
   </div>
@@ -139,6 +143,9 @@
             <mat-card-title class="movieTitle">{{ mov.title }}</mat-card-title>
           </mat-card-content>
         </mat-card>
+      </div>
+      <div *ngIf="!displayedPopularMovies.length">
+        <p style="color: red; text-align: center;"> No Movies Found</p>
       </div>
     </div>
   </div>

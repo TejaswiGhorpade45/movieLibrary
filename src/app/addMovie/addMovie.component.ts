@@ -48,54 +48,6 @@ export default class AddMovieComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
-  onImageSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (!input.files || input.files.length === 0) return;
-  
-    const file = input.files[0];
-    const allowedTypes = ['image/jpeg', 'image/png'];
-  
-    if (!allowedTypes.includes(file.type)) {
-      alert('Only JPEG and PNG files are allowed.');
-      input.value = '';
-      this.previewUrl = '';
-      this.newMovie.image = '';
-      return;
-    }
-  
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.previewUrl = reader.result as string;
-      this.newMovie.image = this.previewUrl;
-    };
-    reader.readAsDataURL(file);
-  }
-
-  addMovie(): void {
-    const { title, category, image } = this.newMovie;
-
-    if (!title || title.trim() === '') {
-      alert('Please enter a movie title.');
-      return;
-    }
-  
-    if (!category) {
-      alert('Please select a movie category.');
-      return;
-    }
-  
-    if (!image) {
-      alert('Please upload a JPEG or PNG image.');
-      return;
-    }
-  
-    // If all validations pass
-    this.newMovie.id = Date.now();
-    this.dialogRef.close(this.newMovie);
-  }
-
   closeDialog(): void {
     this.dialogRef.close();
   }

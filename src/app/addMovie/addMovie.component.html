@@ -1,29 +1,24 @@
-<!-- Overlay / Modal -->
+
 <div class="overlay">
   <mat-card class="display-card">
-    <!-- Title at the top -->
     <mat-toolbar color="primary" class="toolbar">
       <span>{{ dataForView.title }}</span>
     </mat-toolbar>
 
-    <!-- Description / Content in center -->
     <mat-card-content class="content">
     <div class="content-row">
-      <!-- Image on the left -->
       <div class="image-preview" *ngIf="dataForView.image">
         <img [src]="dataForView.image" alt="{{ dataForView.title }}" />
       </div>
 
-      <!-- Text on the right -->
       <div class="text-content">
         <p>Watch {{ movie.title }} right now or download it to enjoy later — anywhere, anytime</p>
-        <!-- Optional Category -->
-        <!-- <p><strong>Category:</strong> {{ dataForView.category }}</p> -->
       </div>
     </div>
   </mat-card-content>
 
-    <!-- Buttons at the bottom -->
+
+  <!-- Just created buttons -->
     <mat-card-actions class="button-row">
       <button mat-button color="primary" (click)="onCancel()">Watch</button>
       <button mat-button color="primary" (click)="onCancel()">Download</button>
