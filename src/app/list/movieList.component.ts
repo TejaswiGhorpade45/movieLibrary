@@ -29,7 +29,6 @@ export default class movieListComponent implements OnInit {
     { title: "DUDE", image: "assets/images/dude.jpg" },
     { title: "SINGHAM AGAIN", image: "assets/images/Singham.jpg" },
     { title: "DUDE", image: "assets/images/dude.jpg" },
-    { title: "SINGHAM AGAIN", image: "assets/images/Singham.jpg" }
   ];
 
   displayedUpcomingMovies: Movie[] = [
